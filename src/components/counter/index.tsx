@@ -29,7 +29,7 @@ export const Counter = () => {
   } = useCounter()
 
   return (
-    <VStack spacing={6}>
+    <VStack spacing={8}>
       {comment && (
         <CautionModal
           count={count}
@@ -61,7 +61,7 @@ export const Counter = () => {
           aria-label="increment count"
           colorScheme="teal"
           fontSize={'32px'}
-          boxSize="64px"
+          boxSize="84px"
           variant={'outline'}
           icon={<MinusIcon />}
           isRound

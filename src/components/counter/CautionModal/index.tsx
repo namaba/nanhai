@@ -1,5 +1,7 @@
 import {
   Button,
+  chakra,
+  ChakraProvider,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -34,7 +36,9 @@ export const CautionModal = ({
         <ModalBody>
           <VStack>
             {url && (
-              <Image src={url} alt="Avatar" width={'200px'} height={'200px'} />
+              <chakra.div pos="relative" boxSize={'250px'}>
+                <Image src={url} alt="" layout="fill" objectFit="contain" />
+              </chakra.div>
             )}
             <Text>{comment}</Text>
           </VStack>
