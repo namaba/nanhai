@@ -7,6 +7,7 @@ import {
   IconButton,
   VStack,
 } from '@chakra-ui/react'
+import { Dispatch, SetStateAction } from 'react'
 import { useCounter } from 'src/hooks/useCounter'
 import { CautionModal } from './CautionModal'
 
@@ -16,7 +17,12 @@ export type Caution = {
   count: number
 }
 
-export const Counter = () => {
+type CounterProps = {
+  drinkPartyId: String | null
+  setDrinkPartyId: Dispatch<SetStateAction<String | null>>
+}
+
+export const Counter = ({ drinkPartyId, setDrinkPartyId }: CounterProps) => {
   const {
     count,
     comment,
@@ -26,7 +32,7 @@ export const Counter = () => {
     isDisabled,
     incrementCount,
     decrementCount,
-  } = useCounter()
+  } = useCounter(drinkPartyId, setDrinkPartyId)
 
   return (
     <VStack spacing={8}>
@@ -45,7 +51,6 @@ export const Counter = () => {
           杯目
         </chakra.span>
       </Heading>
-
       <IconButton
         aria-label="increment count"
         colorScheme="teal"

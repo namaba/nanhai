@@ -13,12 +13,7 @@ export const Header = () => {
       borderColor={'gray.200'}
     >
       <Link href="/">
-        <a>
-          何杯目？
-          <chakra.span d="block" fontSize={'12px'}>
-            お酒カウンター
-          </chakra.span>
-        </a>
+        <a>何杯目？</a>
       </Link>
     </Heading>
   )
