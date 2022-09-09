@@ -5,10 +5,23 @@ export const Auth = () => {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState<string>('')
 
+  const signInWithGoogle = async () => {
+    console.log('signInWithGoogle')
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'google',
+    })
+    console.log({ user })
+    console.log({ session })
+    console.log({ error })
+    return { user, session, error }
+  }
+
   const handleLogin = async (email: string) => {
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signIn({ email })
+      // const { error } = await supabase.auth.signIn({ email })
+      console.log('きた')
+      const { user, session, error } = await signInWithGoogle()
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {
